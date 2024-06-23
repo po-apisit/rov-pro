@@ -30,14 +30,14 @@ export default function ListTableTop({}: Props) {
 
         <ListItemButton selected={pathname === "/home/herorating"} onClick={() => gotoPage("/home/herorating")}>
         <ListItemIcon>
-          <PatternIcon />
+          <PatternIcon color="primary" />
         </ListItemIcon>
         <ListItemText primary="ตัวละคร Top" />
       </ListItemButton>
 
       <ListItemButton selected={pathname === "/home/weakness"} onClick={() => gotoPage("/home/weakness")}>
         <ListItemIcon>
-          <AutoModeIcon />
+          <AutoModeIcon color="primary" />
         </ListItemIcon>
         <ListItemText primary="ตัวละครแก้ทาง" />
       </ListItemButton>

@@ -13,7 +13,6 @@ export default function RootHeroComponent({}: Props) {
 
   return (
     <Grid item md={12} >
-        <Typography>ตัวละคร</Typography>
         {
             _rovHeroSelector.is_loading
             ? <Typography>Loading...</Typography>

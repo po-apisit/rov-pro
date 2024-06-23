@@ -2,6 +2,7 @@ import { IHero } from "@/interface/rov/herogroup/IHero";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { thunk_hreo_findall } from "./rov.hero.thunk";
 import { RootState } from "@/store";
+import { ISkillHero } from "@/interface/rov/herogroup/ISkillHero";
 
 interface Hero {
     data: IHero[];
@@ -39,8 +40,18 @@ const rovHeroSlice = createSlice({
                             image_hero: hero.image_hero,
                             description_hero: hero.description_hero,
                             story_hero: hero.story_hero,
-                            __v: hero.__v
-                            
+                            __v: hero.__v,
+                            file: null,
+                        }
+
+                        if(hero.skills){
+                            const newSkills = hero.skills.map((skill:ISkillHero) => {
+                                const newSkill:ISkillHero = {
+                                    ...skill
+                                }
+                                return newSkill;
+                            })
+                            newHero.skills = newSkills;
                         }
                         return newHero;
                     })

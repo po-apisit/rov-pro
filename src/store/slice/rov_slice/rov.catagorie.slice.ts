@@ -1,6 +1,6 @@
 import { ICatagorie } from "@/interface/rov/herogroup/rone/ICatagorie";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { thunk_catagorie_findall, thunk_catagorie_update } from "./rov.catagorie.thunk";
+import { thunk_catagorie_add, thunk_catagorie_delete, thunk_catagorie_findall, thunk_catagorie_update } from "./rov.catagorie.thunk";
 import { RootState } from "@/store";
 
 interface Catagorie {
@@ -29,7 +29,7 @@ const rovCatagorieSlice = createSlice({
                 state.data = [];
                 state.message_errror = null;
             })
-            .addCase(thunk_catagorie_findall.fulfilled, (state:Catagorie, action:PayloadAction<ICatagorie[]>) => {
+            .addCase(thunk_catagorie_findall.fulfilled, (state:Catagorie, action) => {
                 if(action.payload){
                    const newCats:ICatagorie[] =  action.payload.map((cat:ICatagorie ) => {
                         const newCat:ICatagorie = {
@@ -38,7 +38,7 @@ const rovCatagorieSlice = createSlice({
                             image_catagorie: cat.image_catagorie,
                             description_catagorie: cat.description_catagorie,
                             __v: cat.__v,
-                            file: null,
+                            file:  null,
                         }
                         return newCat;
                     })
@@ -78,6 +78,21 @@ const rovCatagorieSlice = createSlice({
                 state.is_loading = false;
                 state.is_error = true;
                 state.message_errror = "server not response";
+            })
+            .addCase(thunk_catagorie_add.fulfilled, (state:Catagorie, action) => {
+                if(action.payload){
+                    if(state.data.length > 0 ){
+                        state.data = [...state.data, action.payload];
+                    } else {
+                        state.data = [action.payload];
+                    }
+                }
+            })
+            .addCase(thunk_catagorie_delete.fulfilled, (state:Catagorie, action:PayloadAction<string>) => {
+                if(action.payload){
+                    const newcat : ICatagorie[] = state.data.filter((cat:ICatagorie) => cat._id !== action.payload );
+                    state.data = newcat;
+                }
             })
 
     }

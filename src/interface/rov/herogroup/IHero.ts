@@ -10,4 +10,6 @@ export interface IHero {
     description_hero: string;
     story_hero: string;
     __v: number;
+    file: File | null;
+    skills: ISkillHero[]
 }

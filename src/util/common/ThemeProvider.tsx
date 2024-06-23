@@ -17,7 +17,10 @@ export default function ThemeProvider({children}: Props) {
    const theme = useMemo(() => {
     return createTheme({
         palette:{
-            mode: "dark"
+            mode: "light",
+            background:{
+                default:"#e9e9e9"
+            }
         },
         components:{
             MuiButton:{
@@ -31,7 +34,7 @@ export default function ThemeProvider({children}: Props) {
             MuiIconButton:{
                 defaultProps:{
                     size: "small",
-                    color: "warning"
+                    color:"inherit"
                 }
             }
         }

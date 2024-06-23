@@ -11,9 +11,7 @@ export default function RootProvider({children}: Props) {
   return (
     <ReduxProvider>
         <ThemeProvider>
-            <LayoutProvider>
                 {children}
-            </LayoutProvider>
         </ThemeProvider>
     </ReduxProvider>
   )

@@ -1,5 +1,5 @@
 export const API = {
-    hero_findall: "rov-hero",
-    catagorie_findall: "rov-catagorie",
+    hero: "rov-hero",
+    catagorie: "rov-catagorie",
     catagorie_upload: "rov-catagorie/upload"
 }

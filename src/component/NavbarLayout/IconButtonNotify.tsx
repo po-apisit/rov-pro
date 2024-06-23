@@ -8,7 +8,7 @@ export default function IconButtonNotify({}: Props) {
   return (
     <Tooltip title="การแจ้งเตือน">
         <IconButton>
-            <NotificationsIcon />
+            <NotificationsIcon  />
         </IconButton>
     </Tooltip>
 

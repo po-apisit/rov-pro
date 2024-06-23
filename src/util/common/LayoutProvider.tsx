@@ -10,11 +10,9 @@ type Props = {
 
 export default function LayoutProvider({children}: Props) {
   return (
-    <Grid container spacing={2}>
-        <NavbarLayout />
+    <React.Fragment>
         {children}
-        
-    </Grid>
+    </React.Fragment>
     
   )
 }

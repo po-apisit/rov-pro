@@ -7,7 +7,6 @@ type Props = {}
 export default function TextFieldSearchComponent({}: Props) {
   return (
     <Grid item md={12} >
-        <Typography>ค้นหา</Typography>
         <TextField 
         placeholder='Search Hero'
         InputProps={{

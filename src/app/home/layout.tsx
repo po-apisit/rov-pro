@@ -1,6 +1,8 @@
+'use client'
 import AsideLayout from '@/layout/AsideLayout'
+import NavbarLayout from '@/layout/NavbarLayout'
 import RightbarLayout from '@/layout/RightbarLayout'
-import { Grid } from '@mui/material'
+import { Grid, useMediaQuery } from '@mui/material'
 import React from 'react'
 
 type Props = {
@@ -8,13 +10,27 @@ type Props = {
 }
 
 export default function layout({children}: Props) {
+  const screen = useMediaQuery('(min-width:800px)');
+
   return (
-    <React.Fragment>
-        <AsideLayout />
-        <Grid item md={8}>
+    <html lang="en">
+    <body>
+    <Grid container spacing={2} >
+             <NavbarLayout />
+      {
+        screen && <AsideLayout />
+      }
+        
+        <Grid item md={screen ? 8 : 12} sx={{width:"100%"}}>
             {children}
         </Grid>
-        <RightbarLayout />
-    </React.Fragment>
+        {
+          screen &&  <RightbarLayout />
+        }
+       
+    </Grid>
+    </body>
+  </html>
+  
   )
 }

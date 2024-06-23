@@ -20,7 +20,7 @@ export default function ListActivity({}: Props) {
         > 
         <ListItemButton>
             <ListItemIcon>
-                <PaymentsIcon />
+                <PaymentsIcon color="primary" />
             </ListItemIcon>
             <ListItemText primary="คูปองฟรี" />
         </ListItemButton>

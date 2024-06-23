@@ -17,7 +17,7 @@ export default function NavbarLayout({}: Props) {
   }
 
   return (
-    <Grid item md={12} >
+    <Grid item md={12} sx={{ width:"100%" }} >
       <AppBar position="static" >
       <Toolbar >
         <Stack sx={{ flexGrow:1 }} >

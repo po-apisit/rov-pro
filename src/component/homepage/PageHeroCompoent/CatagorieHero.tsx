@@ -1,6 +1,6 @@
 import { ICatagorie } from '@/interface/rov/herogroup/rone/ICatagorie';
 import { rovCatagorieSelector } from '@/store/slice/rov_slice/rov.catagorie.slice';
-import { Divider, Grid, Paper, Stack, Typography } from '@mui/material'
+import { Divider, Grid, Paper, Stack, Typography, useMediaQuery } from '@mui/material'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
@@ -8,9 +8,9 @@ type Props = {}
 
 export default function CatagorieHero({}: Props) {
   const _rovCatagorieSelector = useSelector(rovCatagorieSelector);
+  const screen = useMediaQuery('(min-width:800px)');
   return (
     <Grid item md={12}>
-        <Typography>ประเภทฮีโร่</Typography>
         <Grid container spacing={2} >
         {
             _rovCatagorieSelector.is_loading

@@ -6,7 +6,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const thunk_hreo_findall = createAsyncThunk("thunk_hero_findall", async (_, thunk) => {
     try {
-        const response = await HttpClientCookie.get(API.hero_findall);
+        const response = await HttpClientCookie.get(API.hero);
         if(response.status === 200){
             return response.data;
         }

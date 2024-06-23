@@ -31,14 +31,14 @@ export default function ListCommunity({}: Props) {
 
         <ListItemButton selected={pathname === "/home/hero"} onClick={() => gotoPage("/home/hero")} >
         <ListItemIcon>
-          <SmartToyIcon />
+          <SmartToyIcon color="primary" />
         </ListItemIcon>
         <ListItemText primary="Hero & news" secondary="ข่าวสารและตัวละคร" />
       </ListItemButton>
 
       <ListItemButton selected={pathname === "/home/item"} onClick={() => gotoPage("/home/item")}>
         <ListItemIcon>
-          <HandymanIcon />
+          <HandymanIcon color="primary" />
         </ListItemIcon> 
         <ListItemText primary="Item" secondary="ไอเทม ทั้งหมด" />
       </ListItemButton>
@@ -46,7 +46,7 @@ export default function ListCommunity({}: Props) {
       
       <ListItemButton selected={pathname === "/home/toprank"} onClick={() => gotoPage("/home/toprank")}>
         <ListItemIcon>
-          <MilitaryTechIcon />
+          <MilitaryTechIcon color="primary" />
         </ListItemIcon>
         <ListItemText primary="Top 100 Rank" secondary="100 อันดับแรงค์" />
       </ListItemButton>

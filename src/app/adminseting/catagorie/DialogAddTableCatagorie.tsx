@@ -2,18 +2,23 @@
 import { ICatagorie } from '@/interface/rov/herogroup/rone/ICatagorie'
 import { Avatar, Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Stack, TextField, Tooltip, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import EditIcon from '@mui/icons-material/Edit';
+import AddIcon from '@mui/icons-material/Add';
 import AvatarImage from '@/util/common/AvatarImage';
 import { useAppDispatch } from '@/store';
-import { thunk_catagorie_update } from '@/store/slice/rov_slice/rov.catagorie.thunk';
+import { thunk_catagorie_add, thunk_catagorie_update } from '@/store/slice/rov_slice/rov.catagorie.thunk';
 
 type Props = {
-    catagorie: ICatagorie
+
 }
 
-export default function DialogEditTableCatagorie({catagorie}: Props) {
+export default function DialogAddTableCatagorie({}: Props) {
   const [open, setOpen] = useState<boolean>(false)
-  const [data, setData] = useState<ICatagorie>(catagorie)
+  const [data, setData] = useState<ICatagorie>({
+    name_catagorie:"name",
+    image_catagorie:"image",
+    description_catagorie:"",
+    file: null,
+  })
   const dispatch = useAppDispatch();
 
 
@@ -24,22 +29,16 @@ export default function DialogEditTableCatagorie({catagorie}: Props) {
   };
 
   const handleSave = () => {
-    dispatch(thunk_catagorie_update(data));
+    dispatch(thunk_catagorie_add(data));
   }
 
-
-  useEffect(() => {
-    if(catagorie){
-        setData(catagorie)
-    }
-  },[catagorie])
 
 
   return (
     <React.Fragment>
-        <Tooltip title="แก้ไข" >
+        <Tooltip title="เพิ่ม" >
             <IconButton size="small" onClick={() => setOpen(!open) } >
-                <EditIcon />
+                <AddIcon />
             </IconButton>
         </Tooltip>
         <Dialog
